@@ -22,11 +22,31 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/listings/{id}', function($id){
+// route model binding
+Route::get('/listings/{listing}', function(Listing $listing){
+
+    
+    // $listing = Listing::find($id);
+    // if($listing){
     return view('listing',[
-        'listing' => Listing::find($id)
+        'listing' => $listing
     ]);
+    // }else{
+    //     abort('404');
+    // }
 });
+
+// 404 if don't exist
+// Route::get('/listings/{id}', function($id){
+//     $listing = Listing::find($id);
+//     if($listing){
+//         return view('listing',[
+//             'listing' => $listing
+//         ]);
+//     }else{
+//         abort('404');
+//     }
+// });
 
 // Route::get('/hello', function(){
 //     return response('<h1>Not Found</h1>', 404)
