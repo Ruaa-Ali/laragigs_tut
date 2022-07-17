@@ -14,6 +14,9 @@
 
 
     @foreach($listings as $listing)
+    {{-- if you are passing a var you should add : before the prop name
+        otherwise its okey to do it without it
+         --}}
         <x-listing-card :listing="$listing" />
     @endforeach
 
